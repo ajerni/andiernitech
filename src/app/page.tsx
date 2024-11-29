@@ -118,7 +118,11 @@ export default function Dashboard() {
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetContent side="left" className="w-[240px] p-0">
               <SidebarHeader className="border-b px-4 py-2">
-                <div className="h-12"/>
+                <img 
+                  src="/logobw.png" 
+                  alt="Andierni Tech Logo" 
+                  className="h-12 w-auto mb-2 scale-125" 
+                />
                 <h2 className="text-lg font-semibold">Projects</h2>
               </SidebarHeader>
               <ProjectsList />
@@ -128,6 +132,11 @@ export default function Dashboard() {
       ) : (
         <Sidebar className="border-r bg-background">
           <SidebarHeader className="border-b px-4 py-2">
+            <img 
+              src="/logobw.png" 
+              alt="Andierni Tech Logo" 
+              className="h-12 w-auto mb-2 scale-125" 
+            />
             <h2 className="text-lg font-semibold">Projects</h2>
           </SidebarHeader>
           <ProjectsList />
