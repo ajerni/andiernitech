@@ -72,7 +72,7 @@ export default function Dashboard() {
   return (
     <SidebarProvider>
       {isMobile && (
-        <div className="fixed top-0 left-0 z-[100] p-4">
+        <div className="fixed top-0 left-0 z-[200] p-4">
           <Button
             variant="outline"
             size="icon"
@@ -87,7 +87,7 @@ export default function Dashboard() {
       <Sidebar 
         className={`border-r bg-background ${
           isMobile 
-            ? `fixed inset-y-0 left-0 z-[90] w-[240px] transform transition-transform duration-200 ease-in-out ${
+            ? `fixed inset-y-0 left-0 z-[150] w-[240px] transform transition-transform duration-200 ease-in-out ${
                 mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
               }`
             : ''
@@ -121,14 +121,14 @@ export default function Dashboard() {
 
       {isMobile && mobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-[80]"
+          className="fixed inset-0 bg-black/50 z-[140]"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       <SidebarInset className={`min-h-screen ${isMobile ? 'w-full' : ''}`}>
-        <main className={`flex-1 p-6 ${isMobile ? 'pt-16' : ''}`}>
-          <Card>
+        <main className={`flex-1 p-6 ${isMobile ? 'pt-20' : ''} relative z-0`}>
+          <Card className="relative">
             <CardHeader>
               <CardTitle>{selectedProject.name}</CardTitle>
               <CardDescription>{selectedProject.description}</CardDescription>
