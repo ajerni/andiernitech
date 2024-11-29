@@ -2,15 +2,15 @@
 
 import * as React from "react"
 import { ExternalLink, Github, Menu } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Sheet, SheetContent } from "@/components/ui/sheet"
+import { useIsMobile } from "@/hooks/use-mobile"
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -18,7 +18,6 @@ import {
   SidebarProvider,
   SidebarInset,
 } from "@/components/ui/sidebar"
-import { useIsMobile } from "@/hooks/use-mobile"
 
 // Add new projects here
 const projects = [
@@ -69,66 +68,67 @@ export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const isMobile = useIsMobile()
 
+  const ProjectsList = () => (
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarGroupContent>
+          <SidebarMenu>
+            {projects.map((project) => (
+              <SidebarMenuItem key={project.id}>
+                <SidebarMenuButton
+                  onClick={() => {
+                    setSelectedProject(project)
+                    if (isMobile) setMobileMenuOpen(false)
+                  }}
+                  isActive={selectedProject.id === project.id}
+                >
+                  {project.name}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroupContent>
+      </SidebarGroup>
+    </SidebarContent>
+  )
+
   return (
     <SidebarProvider>
-      {isMobile && (
-        <div className="fixed top-0 left-0 z-[200] p-4">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="bg-background"
-          >
-            <Menu className="h-4 w-4" />
-          </Button>
-        </div>
-      )}
+      {isMobile ? (
+        <>
+          <div className="fixed top-0 left-0 z-[200] p-4">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setMobileMenuOpen(true)}
+              className="bg-background"
+            >
+              <Menu className="h-4 w-4" />
+            </Button>
+          </div>
 
-      <Sidebar 
-        className={`border-r bg-background ${
-          isMobile 
-            ? `fixed inset-y-0 left-0 z-[150] w-[240px] transform transition-transform duration-200 ease-in-out ${
-                mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-              }`
-            : ''
-        }`}
-      >
-        <SidebarHeader className="border-b px-4 py-2">
-          {isMobile && (
-            <div className="h-12"/>
-          )}
-          <h2 className="text-lg font-semibold">Projects</h2>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {projects.map((project) => (
-                  <SidebarMenuItem key={project.id}>
-                    <SidebarMenuButton
-                      onClick={() => setSelectedProject(project)}
-                      isActive={selectedProject.id === project.id}
-                    >
-                      {project.name}
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
-
-      {isMobile && mobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-[140]"
-          onClick={() => setMobileMenuOpen(false)}
-        />
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetContent side="left" className="w-[240px] p-0">
+              <SidebarHeader className="border-b px-4 py-2">
+                <div className="h-12"/>
+                <h2 className="text-lg font-semibold">Projects</h2>
+              </SidebarHeader>
+              <ProjectsList />
+            </SheetContent>
+          </Sheet>
+        </>
+      ) : (
+        <Sidebar className="border-r bg-background">
+          <SidebarHeader className="border-b px-4 py-2">
+            <h2 className="text-lg font-semibold">Projects</h2>
+          </SidebarHeader>
+          <ProjectsList />
+        </Sidebar>
       )}
 
       <SidebarInset className={`min-h-screen ${isMobile ? 'w-full' : ''}`}>
         <main className={`flex-1 p-6 ${isMobile ? 'pt-20' : ''} relative z-0`}>
-          <Card className="relative">
+          <Card className="relative overflow-hidden">
             <CardHeader>
               <CardTitle>{selectedProject.name}</CardTitle>
               <CardDescription>{selectedProject.description}</CardDescription>
@@ -141,14 +141,14 @@ export default function Dashboard() {
                   className="aspect-video w-full object-cover"
                 />
               </div>
-              <div className="flex gap-4">
-                <Button asChild>
+              <div className="flex gap-4 flex-wrap">
+                <Button asChild className="flex-1 sm:flex-none min-w-[120px]">
                   <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Visit Project
                   </a>
                 </Button>
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="flex-1 sm:flex-none min-w-[120px]">
                   <a href={selectedProject.github} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
                     View Source
