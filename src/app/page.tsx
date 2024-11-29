@@ -24,7 +24,7 @@ const projects = [
   {
     id: 1,
     name: "Personal Website",
-    description: "My personal website built with Django. Shows some personal photos and legacy stuff.",
+    description: "My personal website built with Django. Shows some personal photos, games and stuff I did in the past.",
     preview: "/screenshots/personal-website.png",
     link: "https://www.andierni.ch",
     github: "https://github.com/ajerni/andierni",
