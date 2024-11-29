@@ -68,6 +68,14 @@ export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const isMobile = useIsMobile()
 
+  // useEffect to preload images
+  React.useEffect(() => {
+    projects.forEach(project => {
+      const img = new Image()
+      img.src = project.preview
+    })
+  }, [])
+
   const ProjectsList = () => (
     <SidebarContent>
       <SidebarGroup>
