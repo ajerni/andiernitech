@@ -114,7 +114,7 @@ export default function Dashboard() {
               <Menu className="h-4 w-4" />
             </Button>
             <img 
-              src="/logo4.png" 
+              src="/logobw.png" 
               alt="Andierni Tech Logo" 
               className="h-8 w-auto" 
             />
