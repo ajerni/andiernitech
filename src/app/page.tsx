@@ -72,11 +72,12 @@ export default function Dashboard() {
   return (
     <SidebarProvider>
       {isMobile && (
-        <div className="fixed top-0 left-0 z-50 p-4">
+        <div className="fixed top-0 left-0 z-[100] p-4">
           <Button
             variant="outline"
             size="icon"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="bg-background"
           >
             <Menu className="h-4 w-4" />
           </Button>
@@ -84,15 +85,18 @@ export default function Dashboard() {
       )}
 
       <Sidebar 
-        className={`border-r ${
+        className={`border-r bg-background ${
           isMobile 
-            ? `fixed inset-y-0 left-0 z-40 transform transition-transform duration-200 ease-in-out ${
+            ? `fixed inset-y-0 left-0 z-[90] w-[240px] transform transition-transform duration-200 ease-in-out ${
                 mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
               }`
             : ''
         }`}
       >
         <SidebarHeader className="border-b px-4 py-2">
+          {isMobile && (
+            <div className="h-12"/>
+          )}
           <h2 className="text-lg font-semibold">Projects</h2>
         </SidebarHeader>
         <SidebarContent>
@@ -117,12 +121,12 @@ export default function Dashboard() {
 
       {isMobile && mobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-30"
+          className="fixed inset-0 bg-black/50 z-[80]"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
-      <SidebarInset className="min-h-screen">
+      <SidebarInset className={`min-h-screen ${isMobile ? 'w-full' : ''}`}>
         <main className={`flex-1 p-6 ${isMobile ? 'pt-16' : ''}`}>
           <Card>
             <CardHeader>
