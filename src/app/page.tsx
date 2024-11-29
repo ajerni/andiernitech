@@ -104,7 +104,7 @@ export default function Dashboard() {
     <SidebarProvider>
       {isMobile ? (
         <>
-          <div className="fixed top-0 left-0 z-[200] p-4">
+          <div className="fixed top-0 left-0 right-0 z-[200] flex items-center gap-3 bg-background p-4">
             <Button
               variant="outline"
               size="icon"
@@ -113,6 +113,11 @@ export default function Dashboard() {
             >
               <Menu className="h-4 w-4" />
             </Button>
+            <img 
+              src="/logo4.png" 
+              alt="Andierni Tech Logo" 
+              className="h-8 w-auto" 
+            />
           </div>
 
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
