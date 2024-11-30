@@ -39,8 +39,8 @@ const projects = [
   },
   {
     id: 3,
-    name: "LLM's - Langchain Playground",
-    description: "Streamlit app to play around with Langchain (Python) and LLMs (Large Language Models). Ask Andi for password :-).",
+    name: "LLM's & AI Playground",
+    description: "Langchain (Python) and LLMs (Large Language Models) AI playground. Ask Andi for password :-).",
     preview: "/screenshots/langchain-streamlit.png",
     link: "https://erni-langchain.streamlit.app/",
     github: "https://github.com/ajerni/erni-langchain",
@@ -56,10 +56,26 @@ const projects = [
   {
     id: 5,
     name: "MQTT Dashboard",
-    description: "A IoT dashboard for MQTT (Message Queuing Telemetry Transport) messages. Playground for Microcontroller projects.",
+    description: "An IoT dashboard for MQTT (Message Queuing Telemetry Transport) messages. Playground for Microcontroller projects. Ask Andi for password :-).",
     preview: "/screenshots/mqtt-dashboard.png",
     link: "https://mqtt.andierni.tech",
     github: "https://github.com/ajerni/mqtt",
+  },
+  {
+    id: 6,
+    name: "Mini-sites and tests",
+    description: "A sample of minisites and tests I did over the years.",
+    preview: "/screenshots/minisites-preview.png",
+    link: "/minisites",
+    github: "https://github.com/ajerni/",
+  },
+  {
+    id: 7,
+    name: "Games",
+    description: "Some funny mini games. Most game ideas came from my kids :-)",
+    preview: "/screenshots/games-preview.png",
+    link: "/games",
+    github: "https://github.com/ajerni/",
   },
 ]
 
