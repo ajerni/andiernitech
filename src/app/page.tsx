@@ -116,7 +116,7 @@ export default function Dashboard() {
             <img 
               src="/logobw.png" 
               alt="Andierni Tech Logo" 
-              className="h-8 w-auto" 
+              className="h-8 w-auto scale-125" 
             />
           </div>
 
