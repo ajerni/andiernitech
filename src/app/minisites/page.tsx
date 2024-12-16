@@ -106,6 +106,13 @@ const minisites = [
     image: "/minisites/alpine.png",
     link: "https://alpine.andierni.ch"
   },
+  {
+    id: 15,
+    title: "MQTT Dashboard",
+    description: "An IoT dashboard for MQTT (Message Queuing Telemetry Transport) messages. Playground for Microcontroller projects. Ask Andi for password :-).",
+    image: "/minisites/mqtt-dashboard.png",
+    link: "https://mqtt.andierni.tech"
+  },
 ]
 
 export default function Minisites() {

@@ -1,11 +1,17 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ExternalLink, Github, Menu } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Sheet, SheetContent } from "@/components/ui/sheet"
-import { useIsMobile } from "@/hooks/use-mobile"
+import * as React from "react";
+import { ExternalLink, Github, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Sidebar,
   SidebarContent,
@@ -17,14 +23,15 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarInset,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 // Add new projects here
 const projects = [
   {
     id: 1,
     name: "Personal Website",
-    description: "My personal website built with Django. Shows some personal photos, games and stuff I did in the past.",
+    description:
+      "My personal website built with Django. Shows some personal photos, games and stuff I did in the past.",
     preview: "/screenshots/personal-website.png",
     link: "https://www.andierni.ch",
     github: "https://github.com/ajerni/andierni",
@@ -32,34 +39,37 @@ const projects = [
   {
     id: 2,
     name: "Wine Cellar - www.mywine.info",
-    description: "My wine cellar management system. Fully fledged web app using Next.js, Tailwind CSS, PostgreSQL, FastAPI and Langchain for AI features.",
+    description:
+      "My wine cellar management system. Fully fledged web app using Next.js, Tailwind CSS, PostgreSQL, FastAPI and Langchain for AI features.",
     preview: "/screenshots/wine-cellar.png",
     link: "https://mywine.info",
     github: "https://github.com/ajerni/mywine",
   },
   {
     id: 3,
+    name: "www.ernilabs.com",
+    description: "The ultimate docker host for IoT and AI projects",
+    preview: "/screenshots/ernilabs.png",
+    link: "https://www.ernilabs.com",
+    github: "https://github.com/ajerni",
+  },
+  {
+    id: 4,
     name: "LLM's & AI Playground",
-    description: "Langchain (Python) and LLMs (Large Language Models) AI playground. Ask Andi for password :-).",
+    description:
+      "Langchain (Python) and LLMs (Large Language Models) AI playground. Ask Andi for password :-).",
     preview: "/screenshots/langchain-streamlit.png",
     link: "https://erni-langchain.streamlit.app/",
     github: "https://github.com/ajerni/erni-langchain",
   },
   {
-    id: 4,
+    id: 5,
     name: "Rust and PostgreSQL",
-    description: "PostgreSQL database 💾 application written in Rust 🦀 using the SQLX library and serving it with Actix webserver. Also includes a Bevy Engine 🎮 game.",
+    description:
+      "PostgreSQL database 💾 application written in Rust 🦀 using the SQLX library and serving it with Actix webserver. Also includes a Bevy Engine 🎮 game.",
     preview: "/screenshots/rust-sqlx.png",
     link: "https://rust-sqlx.onrender.com/htmx",
     github: "https://github.com/ajerni/rust-sqlx",
-  },
-  {
-    id: 5,
-    name: "MQTT Dashboard",
-    description: "An IoT dashboard for MQTT (Message Queuing Telemetry Transport) messages. Playground for Microcontroller projects. Ask Andi for password :-).",
-    preview: "/screenshots/mqtt-dashboard.png",
-    link: "https://mqtt.andierni.tech",
-    github: "https://github.com/ajerni/mqtt",
   },
   {
     id: 6,
@@ -77,20 +87,20 @@ const projects = [
     link: "/games",
     github: "https://github.com/ajerni/",
   },
-]
+];
 
 export default function Dashboard() {
-  const [selectedProject, setSelectedProject] = React.useState(projects[0])
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
-  const isMobile = useIsMobile()
+  const [selectedProject, setSelectedProject] = React.useState(projects[0]);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const isMobile = useIsMobile();
 
   // useEffect to preload images
   React.useEffect(() => {
-    projects.forEach(project => {
-      const img = new Image()
-      img.src = project.preview
-    })
-  }, [])
+    projects.forEach((project) => {
+      const img = new Image();
+      img.src = project.preview;
+    });
+  }, []);
 
   const ProjectsList = () => (
     <SidebarContent>
@@ -101,8 +111,8 @@ export default function Dashboard() {
               <SidebarMenuItem key={project.id}>
                 <SidebarMenuButton
                   onClick={() => {
-                    setSelectedProject(project)
-                    if (isMobile) setMobileMenuOpen(false)
+                    setSelectedProject(project);
+                    if (isMobile) setMobileMenuOpen(false);
                   }}
                   isActive={selectedProject.id === project.id}
                 >
@@ -114,7 +124,7 @@ export default function Dashboard() {
         </SidebarGroupContent>
       </SidebarGroup>
     </SidebarContent>
-  )
+  );
 
   return (
     <SidebarProvider>
@@ -129,20 +139,20 @@ export default function Dashboard() {
             >
               <Menu className="h-4 w-4" />
             </Button>
-            <img 
-              src="/logobw.png" 
-              alt="Andierni Tech Logo" 
-              className="h-8 w-auto scale-125" 
+            <img
+              src="/logobw.png"
+              alt="Andierni Tech Logo"
+              className="h-8 w-auto scale-125"
             />
           </div>
 
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetContent side="left" className="w-[240px] p-0">
               <SidebarHeader className="border-b px-4 py-2">
-                <img 
-                  src="/logobw.png" 
-                  alt="Andierni Tech Logo" 
-                  className="h-12 w-auto mb-2 scale-125" 
+                <img
+                  src="/logobw.png"
+                  alt="Andierni Tech Logo"
+                  className="h-12 w-auto mb-2 scale-125"
                 />
                 <h2 className="text-lg font-semibold">Projects</h2>
               </SidebarHeader>
@@ -153,10 +163,10 @@ export default function Dashboard() {
       ) : (
         <Sidebar className="border-r bg-background">
           <SidebarHeader className="border-b px-4 py-2">
-            <img 
-              src="/logobw.png" 
-              alt="Andierni Tech Logo" 
-              className="h-12 w-auto mb-2 scale-125" 
+            <img
+              src="/logobw.png"
+              alt="Andierni Tech Logo"
+              className="h-12 w-auto mb-2 scale-125"
             />
             <h2 className="text-lg font-semibold">Projects</h2>
           </SidebarHeader>
@@ -164,8 +174,8 @@ export default function Dashboard() {
         </Sidebar>
       )}
 
-      <SidebarInset className={`min-h-screen ${isMobile ? 'w-full' : ''}`}>
-        <main className={`flex-1 p-6 ${isMobile ? 'pt-20' : ''} relative z-0`}>
+      <SidebarInset className={`min-h-screen ${isMobile ? "w-full" : ""}`}>
+        <main className={`flex-1 p-6 ${isMobile ? "pt-20" : ""} relative z-0`}>
           <Card className="relative overflow-hidden">
             <CardHeader>
               <CardTitle>{selectedProject.name}</CardTitle>
@@ -181,13 +191,25 @@ export default function Dashboard() {
               </div>
               <div className="flex gap-4 flex-wrap">
                 <Button asChild className="flex-1 sm:flex-none min-w-[120px]">
-                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Visit Project
                   </a>
                 </Button>
-                <Button variant="outline" asChild className="flex-1 sm:flex-none min-w-[120px]">
-                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  asChild
+                  className="flex-1 sm:flex-none min-w-[120px]"
+                >
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Github className="mr-2 h-4 w-4" />
                     View Source
                   </a>
@@ -198,6 +220,5 @@ export default function Dashboard() {
         </main>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
-
