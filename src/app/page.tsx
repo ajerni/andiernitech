@@ -47,6 +47,15 @@ const projects = [
   },
   {
     id: 3,
+    name: "Personal Bot",
+    description:
+      "My personal bot. Able to manage my tasks and calendar, sending e-mails and more. Connected to n8n to run agents",
+    preview: "/screenshots/bot.png",
+    link: "https://bot.andierni.ch",
+    github: "https://github.com/ajerni/bot",
+  },
+  {
+    id: 4,
     name: "Wine Cellar - www.mywine.info",
     description:
       "My wine cellar management system. Fully fledged web app using Next.js, Tailwind CSS, PostgreSQL, FastAPI and Langchain for AI features.",
@@ -55,7 +64,7 @@ const projects = [
     github: "https://github.com/ajerni/mywine",
   },
   {
-    id: 4,
+    id: 5,
     name: "www.ernilabs.com",
     description: "The ultimate docker host for IoT and AI projects",
     preview: "/screenshots/ernilabs.png",
@@ -63,7 +72,7 @@ const projects = [
     github: "https://github.com/ajerni",
   },
   {
-    id: 5,
+    id: 6,
     name: "LLM's & AI Playground",
     description:
       "Langchain (Python) and LLMs (Large Language Models) AI playground. Ask Andi for password :-).",
@@ -72,7 +81,7 @@ const projects = [
     github: "https://github.com/ajerni/erni-langchain",
   },
   {
-    id: 6,
+    id: 7,
     name: "Rust and PostgreSQL",
     description:
       "PostgreSQL database 💾 application written in Rust 🦀 using the SQLX library and serving it with Actix webserver. Also includes a Bevy Engine 🎮 game.",
@@ -81,7 +90,7 @@ const projects = [
     github: "https://github.com/ajerni/rust-sqlx",
   },
   {
-    id: 7,
+    id: 8,
     name: "Mini-sites and tests",
     description: "A sample of minisites and tests I did over the years.",
     preview: "/screenshots/minisites-preview.png",
@@ -89,7 +98,7 @@ const projects = [
     github: "https://github.com/ajerni/",
   },
   {
-    id: 8,
+    id: 9,
     name: "Games",
     description: "Some funny mini games. Most game ideas came from my kids :-)",
     preview: "/screenshots/games-preview.png",
