@@ -109,9 +109,9 @@ const projects = [
     id: 10,
     name: "Synth Patch Library",
     description: "A full web app for managing and sharing synth patches.",
-    preview: "/screenshots/synth.png",
+    preview: "/screenshots/patches.png",
     link: "https://synth-patch-library.com",
-    github: "https://github.com/patches/",
+    github: "https://github.com/ajerni/patches/",
   },
 ];
 
