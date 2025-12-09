@@ -113,6 +113,14 @@ const projects = [
     link: "https://synth-patch-library.com",
     github: "https://github.com/ajerni/patches/",
   },
+  {
+    id: 11,
+    name: "andreaserni.com - Digital Twin",
+    description: "An AI powered digital twin of myself",
+    preview: "/screenshots/andreasernicom.png",
+    link: "https:/andreaserni.com",
+    github: "https://github.com/ajerni/digital-twin/",
+  },
 ];
 
 export default function Dashboard() {
