@@ -118,7 +118,7 @@ const projects = [
     name: "andreaserni.com - Digital Twin",
     description: "An AI powered digital twin of myself",
     preview: "/screenshots/andreasernicom.png",
-    link: "https:/andreaserni.com",
+    link: "https://andreaserni.com",
     github: "https://github.com/ajerni/digital-twin/",
   },
 ];
