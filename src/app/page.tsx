@@ -121,6 +121,14 @@ const projects = [
     link: "https://andreaserni.com",
     github: "https://github.com/ajerni/digital-twin/",
   },
+  {
+    id: 12,
+    name: "Status Tracker and Scoreboard Demo",
+    description: "Actix Web and PostgreSQL",
+    preview: "/screenshots/actixscore.png",
+    link: "https://statustracker.ernilabs.com",
+    github: "https://github.com/ajerni/actix-psql-template",
+  },
 ];
 
 export default function Dashboard() {
