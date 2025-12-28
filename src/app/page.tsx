@@ -123,9 +123,9 @@ const projects = [
   },
   {
     id: 12,
-    name: "Status Tracker and Scoreboard Demo",
+    name: "Status Tracker and Scoreboard",
     description: "Actix Web and PostgreSQL",
-    preview: "/screenshots/actixscore.png",
+    preview: "/screenshots/actixsc.jpg",
     link: "https://statustracker.ernilabs.com",
     github: "https://github.com/ajerni/actix-psql-template",
   },
