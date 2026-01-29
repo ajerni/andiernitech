@@ -129,6 +129,14 @@ const projects = [
     link: "https://statustracker.ernilabs.com",
     github: "https://github.com/ajerni/actix-psql-template",
   },
+  {
+    id: 13,
+    name: "Chat Room App",
+    description: "Chatroom using Socket.io",
+    preview: "/screenshots/chatpic.jpg",
+    link: "https://chat.andierni.ch",
+    github: "https://github.com/ajerni/chat",
+  },
 ];
 
 export default function Dashboard() {
